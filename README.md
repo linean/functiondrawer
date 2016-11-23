@@ -8,3 +8,11 @@ Math parser uses recurrent algorithm. Adding new function is very simple, so it'
 Ask me if you have questions.
 
 To run, just download FunctionDrawer.jar file. All resources also available.
+
+
+#Sample usage:
+![alt tag](https://github.com/linean/functiondrawer/blob/master/sample/sample_1.PNG)
+
+![alt tag](https://github.com/linean/functiondrawer/blob/master/sample/sample_2.PNG)
+
+![alt tag](https://github.com/linean/functiondrawer/blob/master/sample/sample_3.PNG)
