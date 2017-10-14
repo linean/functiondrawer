@@ -8,8 +8,8 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Klasa obs\u0142uguje zapisywanie narysowanego wykresu do pliku. Umo\u017cliwia wybranie dw\u00f3ch podstawowych format\u00f3w
- * i lokalizacji, gdzie plik ma zosta\u0107 zapisany. Wy\u0142apuje ewentualne b\u0142\u0119dy zapisu.
+ * Klasa obsługuje zapisywanie narysowanego wykresu do pliku. Umożliwia wybranie dwóch podstawowych formatów
+ * i lokalizacji, gdzie plik ma zostać zapisany. Wyłapuje ewentualne błędy zapisu.
  */
 class FileSaver {
     private JFileChooser fileChooser;
@@ -17,7 +17,7 @@ class FileSaver {
 
     /**
      * Zapisuje obraz
-     * @param image - obraz kt\u00f3ry ma zosta\u0107 zapisany
+     * @param image - obraz który ma zostać zapisany
      * @return - powodzenie operacji
      */
     boolean saveGraphic(BufferedImage image) {
@@ -34,7 +34,7 @@ class FileSaver {
     }
 
     /**
-     * Ustawia formaty w jakim mo\u017cna zapisa\u0107 obraz
+     * Ustawia formaty w jakim można zapisać obraz
      */
     private void setFileFilters() {
         FileNameExtensionFilter
@@ -47,7 +47,7 @@ class FileSaver {
     }
 
     /**
-     * Ustala lokalizacj\u0119 zapisania pliku i wykonuje operacj\u0119 zapisania
+     * Ustala lokalizację zapisania pliku i wykonuje operację zapisania
      * @return - powodzenie operacjis
      */
     private boolean chooseAndSaveFile() {
@@ -91,7 +91,7 @@ class FileSaver {
     /**
      * Usuwa typ pliku z wybranej lokalizacji
      * @param path - wybrana lokalziacja
-     * @return - wybrana lokalizacja bez ko\u0144c\u00f3wki pliku
+     * @return - wybrana lokalizacja bez końcówki pliku
      */
     private String removeDotFromPath(String path) {
         if (path.indexOf('.') > 0)

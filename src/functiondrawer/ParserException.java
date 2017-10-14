@@ -10,9 +10,9 @@ class ParserException extends Exception {
     private final String info;
 
     /**
-     * Obs\u0142uga b\u0142\u0119d\u00f3w parsera
-     * @param errorCode - kod b\u0142\u0119ddu
-     * @param info - dodatkowa informacja o bb\u0142\u0119ddzie
+     * Obsługa błędów parsera
+     * @param errorCode - kod błędu
+     * @param info - dodatkowa informacja o błędzie
      */
     ParserException(int errorCode, String info) {
         super("ParserException, errorCode: " + errorCode);

@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Klasa obs\u0142uguj\u0119 JPanel umieszczony w aplikacji. Jej zadaniem jest nayrsowanie uk\u0142adu wsp\u00f3\u0142rz\u0119dnych i wykresu funkcji
- * na podstawie obliczonych przez parser punkt\u00f3w. Dodatkowo umo\u017cliwia ona wy\u015bwietlanie informacji tekstowych w przypadku
- * wyst \u0105pienia komunikat\u00f3w dla uzytkownika.
- * Na podstawie listy obliczonych punkt\u00f3w, zostaje automatycznie wyznaczony zakres i skala ryskunku kt\u00f3ry zostanie wykonany.
- * Kroki uk\u0142adu wsp\u00f3\u0142rz\u0119dnych dobierane s \u0105 tak by ich ilo\u015bc nie przekracza\u0142a dziesi\u0119ciu.
+ * Klasa obsługuję JPanel umieszczony w aplikacji. Jej zadaniem jest nayrsowanie układu współrzędnych i wykresu funkcji
+ * na podstawie obliczonych przez parser punktów. Dodatkowo umożliwia ona wyświetlanie informacji tekstowych w przypadku
+ * wystąpienia komunikatów dla uzytkownika.
+ * Na podstawie listy obliczonych punktów, zostaje automatycznie wyznaczony zakres i skala ryskunku który zostanie wykonany.
+ * Kroki układu współrzędnych dobierane są tak by ich ilośc nie przekraczała dziesięciu.
  */
 
 class DrawingPanel extends JPanel {
@@ -32,8 +32,8 @@ class DrawingPanel extends JPanel {
     private int biggestX, biggestY;
 
     /**
-     * Ustawia wiadomo\u015b\u0107 b\u0142\u0119du - kolor czerwony
-     * @param message - wiadomo\u015bc do wy\u015bwietlenia
+     * Ustawia wiadomość błędu - kolor czerwony
+     * @param message - wiadomośc do wyświetlenia
      */
     void setErrorMessage(String message) {
         if (message != null) {
@@ -43,8 +43,8 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * Ustawia wiadomo\u015b\u0107 - kolor zielony
-     * @param message - wiadomo\u015bc do wy\u015bwietlenia
+     * Ustawia wiadomość - kolor zielony
+     * @param message - wiadomośc do wyświetlenia
      */
     void setMessage(String message) {
         if (message != null) {
@@ -54,8 +54,8 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * Ustawia punkty na podstawie kt\u00f3rych ma zosta\u0107 narysowany wykres
-     * @param pointsList - lista puntk\u00f3w
+     * Ustawia punkty na podstawie których ma zostać narysowany wykres
+     * @param pointsList - lista puntków
      */
     void setFunctionPoints(List<Point.Double> pointsList) {
         this.pointsList = pointsList;
@@ -63,7 +63,7 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * @return aktualnie narysowan \u0105 grafik\u0119 w postaci zabuforowanego obrazu
+     * @return aktualnie narysowaną grafikę w postaci zabuforowanego obrazu
      */
     BufferedImage getBufferedGraphic() {
         BufferedImage bufferedImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
@@ -74,8 +74,8 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * G\u0142\u00f3wna metoda obiektu, zostaje wywo\u0142ana ka\u017cdorazowo gdy JPanel ma zosta\u0107 narysowany,
-     * steruje ona b\u0142\u0119dami i rysowaniem funkcji
+     * Główna metoda obiektu, zostaje wywołana każdorazowo gdy JPanel ma zostać narysowany,
+     * steruje ona błędami i rysowaniem funkcji
      */
     @Override
     public void paintComponent(Graphics g) {
@@ -101,7 +101,7 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * Zwraca aktualn \u0105 wielko\u015b\u0107 ekranu
+     * Zwraca aktualną wielkość ekranu
      */
     private void measureScreen() {
         width = getWidth();
@@ -109,7 +109,7 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * Wy\u015bwietla b\u0142 \u0105d
+     * Wyświetla błąd
      */
     private void showErrorMessage() {
         graphic.setPaint(ERROR_COLOR);
@@ -119,7 +119,7 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * Wy\u015bwietla informacj\u0119
+     * Wyświetla informację
      */
     private void showMessage() {
         graphic.setPaint(MESSAGE_COLOR);
@@ -129,14 +129,14 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * Ustala \u015brodek JPanel'u
+     * Ustala środek JPanel'u
      */
     private void setCoordinateCenter() {
         graphic.translate(width / 2, height / 2);
     }
 
     /**
-     * Na podstawie listy przes\u0142anych punkt\u00f3w ustala maksymaln \u0105 istniej \u0105c \u0105 warto\u015b\u0107 X i Y
+     * Na podstawie listy przesłanych punktów ustala maksymalną istniejącą wartość X i Y
      */
     private void setLimits() {
         biggestX = (int) Math.ceil(getBiggestAbsX());
@@ -147,7 +147,7 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * Zwraca najwi\u0119ksz \u0105 warto\u015b\u0107 bezwzgl\u0119dn \u0105 liczby X
+     * Zwraca największą wartość bezwzględną liczby X
      */
     private double getBiggestAbsX() {
         double result = 0;
@@ -158,7 +158,7 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * Zwraca najwi\u0119ksz \u0105 warto\u015b\u0107 bezwzgl\u0119dn \u0105 liczby Y
+     * Zwraca największą wartość bezwzględną liczby Y
      */
     private double getBiggestAbsY() {
         double result = 0;
@@ -169,7 +169,7 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * Na podstawie maksymalnych warto\u015bci ustala jak \u0105 skal\u0119 przyjmie o\u015b X i Y
+     * Na podstawie maksymalnych wartości ustala jaką skalę przyjmie oś X i Y
      */
     private void setScale() {
         xScale = (width / ((float) biggestX * (2 + DRAWING_SIDE_MARGIN)));
@@ -177,7 +177,7 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * Rysuje linie uk\u0142adu wsp\u00f3\u0142rz\u0119dnych
+     * Rysuje linie układu współrzędnych
      */
     private void drawCoordinateLines() {
         graphic.setPaint(COORDINATE_COLOR);
@@ -188,7 +188,7 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * Rysuje oznaczenia uk\u0142adu wsp\u00f3\u0142rz\u0119dnych w odpowiednich odleg\u0142o\u015bciach i wyliczonych warto\u015bciach
+     * Rysuje oznaczenia układu współrzędnych w odpowiednich odległościach i wyliczonych wartościach
      */
     private void drawMarkers() {
         draw0Marker();
@@ -210,8 +210,8 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * Zwraca dzielnik okre\u015blonej warto\u015bci gdy jest wi\u0119ksza ni\u017c 10
-     * @param var - warto\u015b\u0107 dla kt\u00f3rej ma zosta\u0107 zwr\u00f3cny dzielnik
+     * Zwraca dzielnik określonej wartości gdy jest większa niż 10
+     * @param var - wartość dla której ma zostać zwrócny dzielnik
      */
     private int getDivider(int var) {
         if (var / 10 > 0)
@@ -222,7 +222,7 @@ class DrawingPanel extends JPanel {
 
     /**
      * Rysuje znacznik X
-     * @param value - warto\u015b\u0107 markera
+     * @param value - wartość markera
      * @param xPosition - lokalizacji markera na osi X
      */
     private void drawXMarker(int value, float xPosition) {
@@ -239,7 +239,7 @@ class DrawingPanel extends JPanel {
 
     /**
      * Rysuje znacznik Y
-     * @param value - warto\u015b\u0107 jaka zostanie wpisana na markerze
+     * @param value - wartość jaka zostanie wpisana na markerze
      * @param yPosition - pozycja na osi Y
      */
     private void drawYMarker(int value, float yPosition) {
@@ -255,7 +255,7 @@ class DrawingPanel extends JPanel {
     }
 
     /**
-     * \u0142 \u0105czy lini \u0105 podane punkty, tworz \u0105c jednocze\u015bnie wykres funkcji
+     * łączy linią podane punkty, tworząc jednocześnie wykres funkcji
      */
     private void drawFunction() {
         graphic.setPaint(FUNCTION_COLOR);

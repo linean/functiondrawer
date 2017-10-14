@@ -5,10 +5,10 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 
 /**
- * Klasa po\u015brednicz\u0105ca mi\u0119dzy modelem "FunctionDrawer" a jego widokiem "View".
- * Zajmuje si\u0119 przekazaniem odpowiednich komunikat\u00f3w i warto\u015bci mi\u0119dzy nimi.
+ * Klasa pośrednicząca między modelem "FunctionDrawer" a jego widokiem "View".
+ * Zajmuje się przekazaniem odpowiednich komunikatów i wartości między nimi.
  *
- * Nie opisuj\u0119 poszczeg\u00f3lnych method, poniewa\u017c s\u0105 one jedynie interfejsami kt\u00f3re przekazuj\u0105 informacje mi\u0119dzy modelem a widokiem
+ * Nie opisuję poszczególnych method, ponieważ są one jedynie interfejsami które przekazują informacje między modelem a widokiem
  */
 
 class Presenter implements View.UserAction, FunctionDrawer.PresenterInterface {

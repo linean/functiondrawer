@@ -6,10 +6,10 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 
 /**
- * Klasa tworz\u0105ca i zarz\u0105dzaj\u0105ca widokiem.
- * Ca\u0142o\u015bc zosta\u0142a oparta o JFrame i layout GridBag, kt\u00f3ry umo\u017cliwia dowolne skalowanie ona aplikacji
- * i zapewnia dososowanie zawarto\u015bci do jego rozmiar\u00f3w.
- * Odbierane tu s\u0105 komendy zastosowane przez u\u017cytkownika, jak r\u00f3wnie\u017c wy\u015bwietlane s\u0105 efekty pracy programu.
+ * Klasa tworząca i zarządzająca widokiem.
+ * Całość została oparta o JFrame i layout GridBag, który umożliwia dowolne skalowanie ona aplikacji
+ * i zapewnia dostoswanie zawartości do jego rozmiarów.
+ * Odbierane tu są komendy użytkownika, jak również wyświetlane są efekty pracy programu.
  */
 
 class View {
@@ -78,8 +78,8 @@ class View {
     }
 
     /**
-     * Metoda tworzy ramk\u0119 JFrame i ustawia w niej GridBagLayout
-     * Ustawione s\u0105 domy\u015blne rozmiary okna, jego tytu\u0142 i ikona
+     * Metoda tworzy ramkę JFrame i ustawia w niej GridBagLayout
+     * Ustawione są domyślne rozmiary okna, jego tytuł i ikona
      */
     private void createFrame() {
         frame = new JFrame();
@@ -95,8 +95,8 @@ class View {
 
     /**
      * Metoda tworzy layout ramki
-     * Sk\u0142ada si\u0119 on z 7 kolumn i 3 wierszy.
-     * Pierwszy wiersz wraz z ostatni\u0105 kolumn\u0105 s\u0105 dynamicznie dostosowywane do rozmiaru okna, pozosta\u0142e zachowuj\u0105 t\u0105 sam\u0105 wielko\u015bc
+     * Składa się on z 7 kolumn i 3 wierszy.
+     * Pierwszy wiersz wraz z ostatnią kolumną są dynamicznie dostosowywane do rozmiaru okna, pozostałe zachowują tą samą wielkość
      */
     private GridBagLayout createGirdBagLayout() {
         GridBagLayout gridBagLayout = new GridBagLayout();
@@ -108,7 +108,7 @@ class View {
     }
 
     /**
-     * Metoda tworzy wszystkie komponenety, kt\u00f3re zostan\u0105 u\u017cyte w widoku
+     * Metoda tworzy wszystkie komponenety, które zostaną użyte w widoku
      */
     private void initComponents() {
         ToolTipManager.sharedInstance().setInitialDelay(0);
@@ -136,8 +136,8 @@ class View {
     }
 
     /**
-     * Metoda tworzy parametry siatki dla ka\u017cdego z wy\u017cej utworzonych komponent\u00f3w,
-     * tak by m\u00f3\u0107 umie\u015bci\u0107 je w ramce w odpowiednich miejscach
+     * Metoda tworzy parametry siatki dla każdego z wyżej utworzonych komponentów,
+     * tak by móć umieścić je w ramce w odpowiednich miejscach
      */
     private void initGrids() {
         drawingPanelGrid = new GridBagConstraints();
@@ -224,7 +224,7 @@ class View {
 
 
     /**
-     * Metoda ustawia nas\u0142uchiwanie naci\u015bni\u0119cia przycisk\u00f3w
+     * Metoda ustawia nasłuchiwanie naciśnięcia przycisków
      */
     private void setListeners() {
         btnDraw.addActionListener(arg0 -> {
@@ -246,9 +246,9 @@ class View {
     }
 
     /**
-     * Metoda odczytuje warto\u015bci kt\u00f3re mog\u0105 zosta\u0107 wpisane przez u\u017cytkownika
-     * Zwraca b\u0142\u0105d je\u015bli s\u0105 nieprawid\u0142owe
-     * @return - true je\u015bli wszystkie pola s\u0105 poprawne
+     * Metoda odczytuje wartości które mogą zostać wpisane przez użytkownika
+     * Zwraca błąd jeśli są nieprawidłowe
+     * @return - true jeśli wszystkie pola są poprawne
      */
     private boolean readValues() {
         equalisation = equalisationField.getText();
@@ -278,7 +278,7 @@ class View {
     }
 
     /**
-     * Zmienia warto\u015bci przedzia\u0142u, je\u015bli zosta\u0142y wpisane nieprawid\u0142owo
+     * Zmienia wartości przedziału, jeśli zostały wpisane nieprawidłowo
      */
     private void switchValues() {
         int temp = startValue;

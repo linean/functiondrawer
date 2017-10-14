@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Klasa obs\u0142uguje algorytm rekurencyjny, kt\u00f3rego zadaniem jest przekszta\u0142cenie wpisanego wzoru matematycznego na obliczaln\u0105 funkcj\u0119.
- * Poprzez zmian\u0119 parametru o zdeklarowany krok, wykonuje seri\u0119 oblicze\u0144 i zwraca list\u0119 puntk\u00f3w nale\u017c\u0105cych do funkcji.
- * Algorym rekurencyjny jest do\u015b\u0107 prostym algorytmem i opiera si\u0119 na ponownym wywo\u0142uwaniu odpowiednich metod a\u017c do zako\u0144czenia wyra\u017cenia.
- * Po poprawnym przetworzeniu okre\u015blonej cz\u0119\u015b\u0107i r\u00f3wnania zostaje ona wyci\u0119ta i przetwarzanie biegnie dalej.
+ * Klasa obsługuje algorytm rekurencyjny, którego zadaniem jest przekształcenie wpisanego wzoru matematycznego na obliczalną funkcję.
+ * Poprzez zmianę parametru o zdeklarowany krok, wykonuje serię obliczeń i zwraca listę puntków należących do funkcji.
+ * Algorym rekurencyjny jest dość prostym algorytmem i opiera się na ponownym wywołuwaniu odpowiednich metod aż do zakończenia wyrażenia.
+ * Po poprawnym przetworzeniu określonej częśći równania zostaje ona wycięta i przetwarzanie biegnie dalej.
  */
 class MathParser {
     private int actualPosition = -1, actualChar, progress = 0, stepCount = 0;
@@ -19,18 +19,18 @@ class MathParser {
 
 
     /**
-     * G\u0142\u00f3wna metoda obiektu, wylicza ilo\u015bc krok\u00f3w jakie b\u0119dzie musia\u0142a podj\u0105\u0107 by wyliczy\u0107 wszystkie punkty funkcji.
+     * Główna metoda obiektu, wylicza ilość kroków jakie będzie musiała podjąć by wyliczyć wszystkie punkty funkcji.
      * Na ich podstawie zwraca aktualy progress.
-     * Poprawia r\u00f3wnanie matematyczne.
-     * Dla kolejnych warto\u015bci generuje dzia\u0142anie i wyzwala je w parserze.
-     * Zwraca list\u0119 punkt\u00f3w funkcji w danym przedziale.
+     * Poprawia równanie matematyczne.
+     * Dla kolejnych wartości generuje działanie i wyzwala je w parserze.
+     * Zwraca listę punktów funkcji w danym przedziale.
      *
-     * @param startValue - warto\u015b\u0107 pocz\u0105tkowa
-     * @param endValue - warto\u015b\u0107 ko\u0144cowa
-     * @param equalisation - wyra\u017cenie w postaci stringu
+     * @param startValue - wartość początkowa
+     * @param endValue - wartość końcowa
+     * @param equalisation - wyrażenie w postaci stringu
      * @param step - krok co jaki wykonywane jest obliczenie
-     * @param parserProgress - aktualny post\u0119p operacji
-     * @return - lista punkt\u00f3w nale\u017c\u0105cych do funkcji
+     * @param parserProgress - aktualny postęp operacji
+     * @return - lista punktów należących do funkcji
      */
     List<Point2D.Double> parseAndGetResult(String equalisation, int startValue, int endValue, float step, ParserProgress parserProgress) throws ParserException {
         this.actualPosition = -1;
@@ -56,9 +56,9 @@ class MathParser {
     }
 
     /**
-     * Dodaje brakuj\u0105ce znaki mno\u017cenia
-     * @param string - wyra\u017cenie matematyczne
-     * @return - poprawione wyra\u017cenie matematyczne
+     * Dodaje brakujące znaki mnożenia
+     * @param string - wyrażenie matematyczne
+     * @return - poprawione wyrażenie matematyczne
      */
     private String addMultiplicationIfMissing(String string) {
         StringBuilder builder = new StringBuilder();
@@ -78,8 +78,8 @@ class MathParser {
     }
 
     /**
-     * Sprawdza czy warto\u015b\u0107 nie przekracza zakresu (maksymalny zakres ustali\u0142em na moment pojawienia si\u0119 notacji naukowych)
-     * @param value - sprawdzana warto\u015b\u0107
+     * Sprawdza czy wartość nie przekracza zakresu (maksymalny zakres ustaliłem na moment pojawienia się notacji naukowych)
+     * @param value - sprawdzana wartość
      */
     private boolean hasPositiveScientificNotation(double value) {
         String valueString = String.valueOf(value);
@@ -88,7 +88,7 @@ class MathParser {
     }
 
     /**
-     * Oblicza aktualny post\u0119p
+     * Oblicza aktualny postęp
      * @param actualStep - aktualnie wykonany krok
      */
     private void changeProgress(int actualStep) {
@@ -120,7 +120,7 @@ class MathParser {
     }
 
     /**
-     * Sprawdza czy nast\u0119puje dodawanie czy odejmowaie
+     * Sprawdza czy następuje dodawanie czy odejmowaie
      */
     private double parseExpression() throws ParserException {
         double calculatedValue = parseTerm();
@@ -144,7 +144,7 @@ class MathParser {
     }
 
     /**
-     * Usuwa znak z r\u00f3wnania
+     * Usuwa znak z równania
      */
     private boolean removeChar(int charToRemove) {
         iterateUntilNotEmpty();
@@ -161,7 +161,7 @@ class MathParser {
     }
 
     /**
-     * Sprawdza czy wyst\u0119puje mno\u017cenie lub dzielenie
+     * Sprawdza czy występuje mnożenie lub dzielenie
      */
     private double parseTerm() throws ParserException {
         double calculatedValue = parseFactor();
@@ -194,9 +194,9 @@ class MathParser {
     }
 
     /**
-     * Sprawdza ewentualn\u0105 negacje funkcji
-     * Bada czy podane wyra\u017cenie jest znanie i je\u015bli tak przetwa\u017ca je
-     * Odczytuje warto\u015b\u0107 dla wyra\u017cenia z nawias\u00f3w
+     * Sprawdza ewentualną negacje funkcji
+     * Bada czy podane wyrażenie jest znanie i jeśli tak przetważa je
+     * Odczytuje wartość dla wyrażenia z nawiasów
      */
     private double parseFactor() throws ParserException {
         double calculatedValue;
@@ -257,9 +257,9 @@ class MathParser {
     }
 
     /**
-     * Oblicza funkcj\u0119 dla podanego parametru na podstawie jej nazwy
+     * Oblicza funkcję dla podanego parametru na podstawie jej nazwy
      * @param function - funkcja matematyczna
-     * @param x - warto\u015b\u0107 dla kt\u00f3rej b\u0119dzie obliczana funkcja
+     * @param x - wartość dla której będzie obliczana funkcja
      */
     private double calculateFunction(String function, double x) throws ParserException {
         switch (function) {
